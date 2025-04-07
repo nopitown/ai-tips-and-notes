@@ -64,7 +64,7 @@ Based on complexity of the subtasks you have outlined in the previous step (Outl
 - How many tokens per input/output will I use? 
 - Do I need the model to use a tool? (e.g. Agents with retrieval tool)
 
-**Tips
+**Tips**
 - In general, [gemini](https://ai.google.dev/gemini-api/docs/pricing) cheap models tend to accept more tokens per input, but lower for output.
 - If tasks are medium or low complexity, you can start with a small model and iterate from there (eg: gpt-4o-mini, gemini-2.0-flash,etc).
 - For medium and high complexity tasks, you can start with strong models which might include reasoning capabilities (eg: gpt-4o, o3-mini, claude-3-7-sonnet).
