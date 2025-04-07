@@ -11,12 +11,11 @@ Most of the time, you will be asked to automated a task using AI that you might 
 
 **Questions to ask:**
 - Is this a task I am familiar with? If no:
-    - Ask ask product team for more details. Focus on understanding the workflow and the expected results.
-    - Request examples of how the task is performed by a human.
+  - Ask ask product team for more details. Focus on understanding the workflow and the expected results.
+  - Request examples of how the task is performed by a human.
 - Is this a task that needs to be performed by an specific expert? If yes:
-    - Ask the product team for the expert name (or use a LLM or internet to identify the expert).
-    - Ask yourself does this needs a human-in-the-loop?
-
+  - Ask the product team for the expert name (or use a LLM or internet to identify the expert).
+  - Ask yourself does this needs a human-in-the-loop?
 - What is the estimated time to complete the task?
     - This will help you to understand the time constraints for you to deliver the task (especially because further steps like iteration and benchmarking will take time to complete).
 
