@@ -31,10 +31,10 @@ AI is not a magic tool that will solve all your problems, it will only be able t
 - How does a bad output look like?
 - What is the minimum quality of the output that I can accept?
 
-Using the answers to the questions above, set a success criteria scorecard that you can use to evaluate the output of the AI. **Make sure to align with the product team on the scorecard.**
+Using the answers to the questions above, set a success criteria scorecard if possible. This will help you to evaluate the output of the AI. **Make sure to align with the product team on the scorecard.**
 
 #### Tips
-- It might not always be possible for the product team to provide a clear answer to the questions above, that's ok. As in other steps, you can use the LLM to help you to come up with the scorecard but make sure to align with them.
+- It might not always be possible for the product team to provide a clear answer to the questions above, that's ok. As in other steps, you can use the LLM to help you to come up with the success criteria but make sure to align with them.
 - Document examples of good/bad outputs for future reference and team alignment.
 
 ### 3. Outline human approach
