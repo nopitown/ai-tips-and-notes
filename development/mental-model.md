@@ -87,7 +87,7 @@ Draft your prompt using the model you picked in the previous steps, also set the
 
 **Tips:**
 - For the role, aim to use a specific role that is aligned with the task.
-- If a model constantly ignores instructions, try to use a different model or consider breaking the task into smaller subtasks (and as mentioned before, delegating a specific subtask to a different LLM call could be a good strategy).
+- If a model constantly ignores instructions despite of all the improvements, try to use a different model or consider breaking the task into smaller subtasks (and as mentioned before, delegating a specific subtask to a different LLM call could be a good strategy).
 - Iteration with AI is hard. Try to be as organized as possible to track what input was used for which output. In general, you should test one change at a time.
 - Use an experimentation framework to track your iterations - a simple spreadsheet with columns for prompt version, model, input, output, and assessment against your criteria can be very effective.
 - When you hit a roadblock with a specific instruction, try reformulating it completely rather than just emphasizing it.
