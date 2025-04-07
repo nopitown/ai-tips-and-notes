@@ -19,7 +19,7 @@ Most of the time, you will be asked to automated a task using AI that you might 
 - What is the estimated time to complete the task?
     - This will help you to understand the time constraints for you to deliver the task (especially because further steps like iteration and benchmarking will take time to complete).
 
-#### Tips
+**Tips:**
 - Product team might not have all the details to answer all your questions, that's ok. You can use a LLM to help you understand the task better and validate your understanding with the product team.
 
 ### 2. Set clear success criteria
@@ -33,7 +33,7 @@ AI is not a magic tool that will solve all your problems, it will only be able t
 
 Using the answers to the questions above, set a success criteria scorecard if possible. This will help you to evaluate the output of the AI. **Make sure to align with the product team on the scorecard.**
 
-#### Tips
+**Tips:**
 - It might not always be possible for the product team to provide a clear answer to the questions above, that's ok. As in other steps, you can use the LLM to help you to come up with the success criteria but make sure to align with them.
 - Document examples of good/bad outputs for future reference and team alignment.
 
@@ -50,7 +50,7 @@ The more you describe the task, the better the AI will be able to help you. Thin
 - Is this list of steps too complex? Can you break it down into smaller steps?
 - Is there any step that is not necessary? Can you remove it?
 
-#### Tips
+**Tips:**
 - If you feel that the steps are too complex or too long, consider having a separate LLM call or considering picking a strong model before hand that can handle complex tasks.
 - If you don't have clarity on how a human would perform the task, ask a LLM to help you.
 
@@ -64,7 +64,7 @@ Based on complexity of the subtasks you have outlined in the previous step (Outl
 - How many tokens per input/output will I use? 
 - Do I need the model to use a tool? (e.g. Agents with retrieval tool)
 
-#### Tips
+**Tips
 - In general, [gemini](https://ai.google.dev/gemini-api/docs/pricing) cheap models tend to accept more tokens per input, but lower for output.
 - If tasks are medium or low complexity, you can start with a small model and iterate from there (eg: gpt-4o-mini, gemini-2.0-flash,etc).
 - For medium and high complexity tasks, you can start with strong models which might include reasoning capabilities (eg: gpt-4o, o3-mini, claude-3-7-sonnet).
@@ -85,7 +85,7 @@ Draft your prompt using the model you picked in the previous steps, also set the
 3. Remove any instructions that are not necessary. Tokens has a cost (even small things like whitespaces), so you should remove any instructions that are not necessary but not affecting the output quality nor later maintainability.
 
 
-#### Tips
+**Tips:**
 - For the role, aim to use a specific role that is aligned with the task.
 - If a model constantly ignores instructions, try to use a different model or consider breaking the task into smaller subtasks (and as mentioned before, delegating a specific subtask to a different LLM call could be a good strategy).
 - Iteration with AI is hard. Try to be as organized as possible to track what input was used for which output. In general, you should test one change at a time.
@@ -96,7 +96,7 @@ Draft your prompt using the model you picked in the previous steps, also set the
 ### 6. Benchmark and optimize
 Once you have a good prompt and the desired output, benchmark it against other models (especially those who has reasoning capabilities). Provide the benchmark results to the product team and ask them to validate the results. Make sure to include the cost or time metrics so a decision can be made on which model to use.
 
-#### Tips
+**Tips:**
 - Timebox your iterations. Remember that LLMs are always evolving, so you don't need to aim for perfect results now, but you should aim for good results.
 
 
