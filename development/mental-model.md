@@ -73,10 +73,10 @@ Based on complexity of the subtasks you have outlined in the previous step (Outl
 ### 5. Iterate and validate against success criteria
 Draft your prompt using the model you picked in the previous steps, also set the proper role for the LLM (e.g. `You are a data analyst`, `You are a software engineer`, etc). Use the success criteria scorecard to evaluate the output of the AI. If the output is not good enough, iterate on the prompt or the model. Here some sequential steps you can follow:
 
-1. Iterate on the prompt. Ask a strong LLM to help you improve the prompt.
+1. Iterate on the prompt:
+  - Ask a strong LLM to help you improve the prompt with clear instructions.
   - Use [markdown](https://youtu.be/W6Z0U11nnhA?si=cVxoaA6y32sPM4fR) to structure your prompt. This has higher chance of being read correctly by the LLM.
   - If an instruction is constantly ignored, try:
-    * Get a LLM to help you improve the instruction.
     * Highlight the instruction in the prompt. Use `**` to bold the instruction or prefix the instruction with `You must` or `IMPORTANT:`.
     * Reinforce the instruction in the prompt. Either add it in the beginning of the prompt or in the end. You can use a special section like: `Key Instructions` or `Rules`
   - Use [few shot examples](https://www.promptingguide.ai/techniques/fewshot) to help the LLM to understand the task better.
