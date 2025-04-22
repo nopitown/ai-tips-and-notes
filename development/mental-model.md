@@ -21,6 +21,7 @@ Most of the time, you will be asked to automated a task using AI that you might 
 - Is this a task that needs to be performed by an specific expert? If yes:
   - Ask the product team for the expert name (or use a LLM or internet to identify the expert).
   - Ask yourself does this needs a human-in-the-loop?
+  - If an expert is not directly available, consider how to access the required specialized knowledge (e.g., documentation, SME interviews).
 - What is the estimated time to complete the task?
   - This will help you to understand the time constraints for you to deliver the task (especially because further steps like iteration and benchmarking will take time to complete).
 
@@ -39,7 +40,7 @@ AI is not a magic tool that will solve all your problems, it will only be able t
 - How does a bad output look like?
 - What is the minimum quality of the output that I can accept?
 
-Using the answers to the questions above, set a success criteria scorecard if possible. This will help you to evaluate the output of the AI. **Make sure to align with the product team on the scorecard.**
+Using the answers to the questions above, set a success criteria scorecard if possible. This will help you to evaluate the output of the AI. Consider both qualitative and quantitative measures. Examples include: accuracy, relevance, tone, format adherence, latency, cost. **Make sure to align with the product team on the scorecard.**
 
 **Tips:**
 
@@ -77,13 +78,14 @@ Based on complexity of the subtasks you have outlined in the previous step (Outl
 - What is the maximum cost that I can afford for this task?
 - How many tokens per input/output will I use?
 - Do I need the model to use a tool? (e.g. Agents with retrieval tool)
+- Check leaderboards and benchmarks (e.g., for coding, math, reasoning) to see which models perform best for your specific task type.
 
 **Tips**
 
 - In general, [gemini](https://ai.google.dev/gemini-api/docs/pricing) cheap models tend to accept more tokens per input, but lower for output.
-- If tasks are medium or low complexity, you can start with a small model and iterate from there (eg: gpt-4o-mini, gemini-2.0-flash,etc).
-- For medium and high complexity tasks, you can start with strong models which might include reasoning capabilities (eg: gpt-4o, o3-mini, claude-3-7-sonnet).
-- Some models like o3-mini seem to not work well with tools yet, so you might need to use a different model.
+- If tasks are medium or low complexity, you can start with a small model and iterate from there (eg: smaller, faster models available at the time).
+- For medium and high complexity tasks, you can start with strong models which might include reasoning capabilities (eg: larger, more capable models).
+- Some models seem to not work well with tools yet, so you might need to use a different model if tool use is required.
 
 ### 5. Iterate and validate against success criteria
 
@@ -100,16 +102,18 @@ Draft your prompt using the model you picked in the previous steps, also set the
 - Convert your prompt to [CoT (Chain of Thought)](https://www.promptingguide.ai/techniques/cot) prompt.
 
 2. Iterate on the model. Check if a stronger model can help you achieve better results.
-3. Remove any instructions that are not necessary. Tokens has a cost (even small things like whitespaces), so you should remove any instructions that are not necessary but not affecting the output quality nor later maintainability.
+3. Iterate on model parameters. Adjust parameters like temperature or top-p to influence creativity vs. predictability.
+4. Remove any instructions that are not necessary. Tokens has a cost (even small things like whitespaces), so you should remove any instructions that are not necessary but not affecting the output quality nor later maintainability.
 
 **Tips:**
 
 - For the role, aim to use a specific role that is aligned with the task.
+- Provide clear, high-quality examples of the desired output directly within the prompt ([few-shot examples](https://www.promptingguide.ai/techniques/fewshot)). This often significantly improves the LLM's understanding and output quality.
 - If a model constantly ignores instructions despite of all the improvements, try to use a different model or consider breaking the task into smaller subtasks (and as mentioned before, delegating a specific subtask to a different LLM call could be a good strategy).
-- Iteration with AI is hard. Try to be as organized as possible to track what input was used for which output. In general, you should test one change at a time.
+- If a prompt involves many complex instructions or subtasks, consider breaking it down. You might get better results by using multiple simpler prompts (potentially sequential calls) rather than one overloaded prompt. Aim for clarity and "one primary instruction" per interaction when possible. This applies the same principle of simplification discussed in Step 3, but during the iteration phase based on observed model performance.
+- Iteration with AI is hard. Try to be as organized as possible to track what input was used for which output. In general, you should test one change at a time (isolate variables: change only the prompt, the model, or a parameter in one iteration).
 - Use an experimentation framework to track your iterations - a simple spreadsheet with columns for prompt version, model, input, output, and assessment against your criteria can be very effective.
 - When you hit a roadblock with a specific instruction, try reformulating it completely rather than just emphasizing it.
-- Test your solution with a diverse set of inputs to ensure robustness.
 
 ### 6. Benchmark and optimize
 
@@ -118,6 +122,24 @@ Once you have a good prompt and the desired output, benchmark it against other m
 **Tips:**
 
 - Timebox your iterations. Remember that LLMs are always evolving, so you don't need to aim for perfect results now, but you should aim for good results.
+- Consider deployment factors like API availability, regional restrictions, and throughput needs when making the final model decision.
+
+### 7. Ethical Considerations & Red Teaming
+
+Before finalizing your solution, consider the ethical implications and potential misuse.
+
+**Questions to ask:**
+
+- Could the AI output be biased? How can we mitigate this?
+- Are there potential harms if the AI output is inaccurate or misused?
+- Does the application comply with relevant privacy regulations and ethical guidelines?
+- How can we test for and prevent harmful or unintended outputs (red teaming)?
+
+**Tips:**
+
+- Proactively test your system with adversarial inputs designed to elicit problematic responses.
+- Consult ethical AI frameworks and guidelines relevant to your domain.
+- Document your ethical considerations and mitigation strategies.
 
 # Chart
 
@@ -157,7 +179,8 @@ flowchart TD
     Good -->|Yes| Step6[6.Benchmark]
     Step6 --> Compare[Compare models]
     Compare --> Results[Share results]
-    Results --> End([End])
+    Results --> Step7[7.Ethical Considerations & Red Teaming]
+    Step7 --> End([End])
 ```
 
 ### Example
