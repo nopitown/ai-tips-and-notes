@@ -108,7 +108,7 @@ Draft your prompt using the model you picked in the previous steps, also set the
 **Tips:**
 
 - For the role, aim to use a specific role that is aligned with the task.
-- Provide clear, high-quality examples of the desired output directly within the prompt ([few-shot examples](https://www.promptingguide.ai/techniques/fewshot)). This often significantly improves the LLM's understanding and output quality.
+improves the LLM's understanding and output quality.
 - If a model constantly ignores instructions despite of all the improvements, try to use a different model or consider breaking the task into smaller subtasks (and as mentioned before, delegating a specific subtask to a different LLM call could be a good strategy).
 - If a prompt involves many complex instructions or subtasks, consider breaking it down. You might get better results by using multiple simpler prompts (potentially sequential calls) rather than one overloaded prompt. Aim for clarity and "one primary instruction" per interaction when possible. This applies the same principle of simplification discussed in Step 3, but during the iteration phase based on observed model performance.
 - Iteration with AI is hard. Try to be as organized as possible to track what input was used for which output. In general, you should test one change at a time (isolate variables: change only the prompt, the model, or a parameter in one iteration).
@@ -121,6 +121,7 @@ Once you have a good prompt and the desired output, benchmark it against other m
 
 **Tips:**
 
+- **Use an LLM as an automated evaluator:** Consider using a separate LLM call, potentially using a strong model with reasoning capabilities, to act as an automated judge. Assign it the role of the primary stakeholder or end-user of the generated output. Ask it to assess the usefulness, clarity, and overall quality from that stakeholder's perspective. This approach can provide rapid feedback beyond simple metrics and can be implemented as a standalone CLI tool or integrated into a CI/CD pipeline.
 - Timebox your iterations. Remember that LLMs are always evolving, so you don't need to aim for perfect results now, but you should aim for good results.
 - Consider deployment factors like API availability, regional restrictions, and throughput needs when making the final model decision.
 
@@ -141,7 +142,7 @@ Before finalizing your solution, consider the ethical implications and potential
 - Consult ethical AI frameworks and guidelines relevant to your domain.
 - Document your ethical considerations and mitigation strategies.
 
-# Chart
+## Chart
 
 ```mermaid
 flowchart TD
@@ -183,6 +184,6 @@ flowchart TD
     Step7 --> End([End])
 ```
 
-### Practical example
+## Practical example
 
 Find it in [mental-model-example.md](./mental-model-example.md)
