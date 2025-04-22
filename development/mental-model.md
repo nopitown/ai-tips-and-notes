@@ -22,7 +22,7 @@ Most of the time, you will be asked to automated a task using AI that you might 
   - Ask the product team for the expert name (or use a LLM or internet to identify the expert).
   - Ask yourself does this needs a human-in-the-loop?
   - If an expert is not directly available, consider how to access the required specialized knowledge (e.g., documentation, SME interviews).
-- What is the estimated time to complete the task?
+- What is the estimated time to complete the task at the development level?
   - This will help you to understand the time constraints for you to deliver the task (especially because further steps like iteration and benchmarking will take time to complete).
 
 **Tips:**
@@ -183,6 +183,6 @@ flowchart TD
     Step7 --> End([End])
 ```
 
-### Example
+### Practical example
 
-Soon (I'll be working on a good example soon and how I applied this mental model)
+Find it in [mental-model-example.md](./mental-model-example.md)
